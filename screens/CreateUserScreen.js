@@ -9,7 +9,7 @@ import {
 
 import firebase from "../database/firebase";
 
-const AddUserScreen = (props) => {
+const CreateUserScreen = (props) => {
   const initalState = {
     name: "",
     email: "",
@@ -102,4 +102,4 @@ const styles = StyleSheet.create({
   },
 });
 
-export default AddUserScreen;
+export default CreateUserScreen;
