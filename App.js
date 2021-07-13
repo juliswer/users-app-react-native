@@ -6,17 +6,25 @@ import {createStackNavigator} from '@react-navigation/stack'
 
 const Stack = createStackNavigator();
 
-function myStack() {
+import UsersList from './screens/UsersList'
+import CreateUserScreen from './screens/CreateUserScreen'
+import UserDetailScreen from './screens/UserDetailScreen'
+
+function MyStack() {
   return (
     <Stack.Navigator>
-      <Stack.Screen />
+      <Stack.Screen name="UsersList" component={UsersList} />
+      <Stack.Screen name="CreateUserScreen" component={CreateUserScreen} />
+      <Stack.Screen name="UserDetailScreen" component={UsersList} />
     </Stack.Navigator>
   )
 }
 
 export default function App() {
   return (
-    <NavigationContainer></NavigationContainer>
+    <NavigationContainer>
+      <MyStack />
+    </NavigationContainer>
   );
 }
 
