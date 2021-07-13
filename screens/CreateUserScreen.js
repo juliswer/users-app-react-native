@@ -1,12 +1,12 @@
 import React from 'react'
 import {View, Text} from 'react-native'
 
-const UsersList = () => {
+const CreateUserScreen = () => {
     return (
         <View>
-            <Text>users list</Text>
+            <Text>Create users</Text>
         </View>
     )
 }
 
-export default UsersList
+export default CreateUserScreen
