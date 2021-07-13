@@ -1,9 +1,11 @@
-import React, { useEffect, useState } from "react";
-import { View, Text, ScrollView, Button } from "react-native";
-import firebase from "../database/firebase";
+import React, { useState, useEffect } from "react";
+import { Button, StyleSheet } from "react-native";
 import { ListItem, Avatar } from "react-native-elements";
+import { ScrollView } from "react-native-gesture-handler";
 
-const UsersList = (props) => {
+import firebase from "../database/firebase";
+
+const UserScreen = (props) => {
   const [users, setUsers] = useState([]);
 
   useEffect(() => {
@@ -20,22 +22,30 @@ const UsersList = (props) => {
       });
       setUsers(users);
     });
-    return () => {};
   }, []);
 
   return (
     <ScrollView>
       <Button
-        title="Create User"
         onPress={() => props.navigation.navigate("CreateUserScreen")}
+        title="Create User"
       />
       {users.map((user) => {
         return (
-          <ListItem key={user.id}>
+          <ListItem
+            key={user.id}
+            bottomDivider
+            onPress={() => {
+              props.navigation.navigate("UserDetailScreen", {
+                userId: user.id,
+              });
+            }}
+          >
             <ListItem.Chevron />
             <Avatar
               source={{
-                uri: "https://picsum.photos/200/200",
+                uri:
+                  "https://picsum.photos/200/300",
               }}
               rounded
             />
@@ -50,4 +60,4 @@ const UsersList = (props) => {
   );
 };
 
-export default UsersList;
+export default UserScreen;
